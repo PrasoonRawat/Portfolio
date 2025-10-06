@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Prasoon logo">
+  <!--
+    Calligraphic "Prasoon" only. If you want a specific script font,
+    replace the font-family with a font you have (e.g. 'Great Vibes').
+    To preserve exact shapes across systems, convert text to outlines in your editor.
+  -->
+  <rect width="100%" height="100%" fill="transparent"/>
+  <text x="50%" y="60%" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Great Vibes', 'Brush Script MT', 'Pacifico', cursive"
+        font-size="400" fill="#000000" style="letter-spacing:2px">
+    Prasoon
+  </text>
+</svg>

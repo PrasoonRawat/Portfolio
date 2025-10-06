@@ -1,7 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Lanyard from "@/components/Lanyard";
+import CardNav from "@/components/CardNav";
+import TargetCursor from "@/components/TargetCursor";
+import LogoLoop from "@/components/LogoLoop";
+import { SiReact, SiNextdotjs, SiTailwindcss, SiJavascript, SiGithub, SiCplusplus, SiC, SiMongodb } from 'react-icons/si';
+import { useState, useEffect, useRef } from "react";
+import Lenis from "lenis";
+import StatusSection from "@/components/StatusSection";
+import { GoArrowDown } from "react-icons/go";
+import ProjectSection from "@/components/ProjectSection/Hover";
+import { ExperienceCard } from "@/components/Experience-Card";
+import Skills from "@/components/Skills";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +25,102 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
+const experiences = [
+  {
+    company: "ENROLLIX",
+    role: "Full Stack Developer",
+    startDate: "Dec 2024",
+    endDate: "Jul 2025",
+    description:
+      "Built responsive web application using Next.js and Tailwind CSS, implemented RESTful APIs with Node.js and Express, and managed MongoDB database operations.",
+  },
+]
+
+
+
 export default function Home() {
+  const [preloader, setPreloader] = useState(false);
+  const [inView, setInView] = useState(false);
+  const lanyardRef = useRef(null);
+
+  useEffect(() => {
+    const lenis = new Lenis({ smooth: true });
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    if (lanyardRef.current) {
+      observer.observe(lanyardRef.current);
+    }
+
+    return () => {
+      if (lanyardRef.current) {
+        observer.unobserve(lanyardRef.current);
+      }
+    };
+  }, []);
+
+  const items = [
+    {
+      label: "About",
+      bgColor: "#0D0716",
+      textColor: "#fff",
+      links: [
+        { label: "Me", ariaLabel: "About me", href: "#Aboutme" },
+        { label: "Careers", ariaLabel: "About Careers", href: "#" }
+      ]
+    },
+    {
+      label: "Projects", 
+      bgColor: "#170D27",
+      textColor: "#fff",
+      links: [
+        { label: "Featured", ariaLabel: "Featured Projects", href: "#" },
+        { label: "Case Studies", ariaLabel: "Project Case Studies", href: "/LLD" }
+      ]
+    },
+    {
+      label: "Contact",
+      bgColor: "#271E37", 
+      textColor: "#fff",
+      links: [
+        { label: "Email", ariaLabel: "Email us", href: "mailto:prasoon818@gmail.com"},
+        { label: "Github", ariaLabel: "Github", href: "https://github.com/PrasoonRawat" },
+        { label: "LinkedIn", ariaLabel: "LinkedIn", href: "https://www.linkedin.com/in/prasoon-priya-rawat-42060922a/" }
+      ]
+    }
+  ];
+
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiJavascript />, title: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiGithub />, title: "GitHub", href: "https://github.com" },
+    { node: <SiCplusplus />, title: "C++", href: "https://isocpp.org" },
+    { node: <SiC />, title: "C", href: "https://en.cppreference.com/w/c" },
+    { node: <SiMongodb />, title: "MongoDB", href: "https://www.mongodb.com" }
+  ];
+
   return (
+    <>
+    {preloader ? 
+      <div className="absolute flex flex-col items-center justify-center bg-[#191919] text-[#dbd8d6]">
+          <h1 className="text-[1.5vw] transform-upper font-serif font-[600] ">Prasoon Priya Rawat</h1>
+          <h2 className="text-[1.5vw] transform-upper font-stretch-extra-condensed italic mt-10px">PORTFOLIO</h2>
+      </div> :
     <>
       <Head>
         <title>Create Next App</title>
@@ -22,96 +128,88 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.js</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
-
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className={styles.logo}
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
+      <TargetCursor 
+      spinDuration={2}
+      hideDefaultCursor={false}
+      />
+      <div>
+        <div className="bg-gradient-to-b from-[#2E2440] to-[#060011] flex flex-col  justify-center min-h-screen font-[Pt_Sans_Narrow] items-center text-white leading-none">
+          <div>
+            <div className="flex h-6 mb-2">
+              <div className="border px-3 py-4 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black">
+              <div className="w-3 h-3 rounded-full bg-[#37ff00]"></div> 
+              <h3 className="font-bold">AVAILABLE</h3>
+              </div>
+            </div>
+            <h3 className="text-[2em] font-[Pt_Sans_Narrow]">welcome to my portfolio 🌍</h3>
+            <h1 className="text-[8em]">Hi, I AM <span className="font-bold font-[Bebas_Neue] text-[#FFFFF0]">PRASOON</span></h1>
+            <h3 className="font-bold opacity-40 text-[2em] font-[Pt_Sans_Narrow] ">Developer, Programmer, Problem Solver, Enthusiast </h3>
+            <h3 className="opacity-40 font-[Pt_Sans_Narrow]">I am not just a computer guy, I’m the bridge between logic and creativity, shaping ideas into experiences.</h3>
           </div>
-        </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
-        </footer>
+            <div ref={lanyardRef} className="absolute" style={{ width: "100%", height: "100vh" }}>
+                {inView && <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />}
+                </div>
+        </div>
       </div>
+      <CardNav
+      logo="/logo.svg"
+      logoAlt="Company Logo"
+      items={items}
+      baseColor="#FFFFF0"
+      menuColor="#000"
+      buttonBgColor="#111"
+      buttonTextColor="#fff"
+      ease="power3.out"
+      />
+
+      {/* WHO I AM */}
+      <div id="Aboutme" className="w-full bg-[#060011]">
+        <div className="flex flex-col md:flex-row items-center text-[#FFFFF0] px-24 py-16 gap-10 md:gap-20 lg:gap-40">
+          <div className="items-start flex flex-row md:flex-col gap-2 md:gap-0 leading-[.8] border-l-[2px] border-[#FFFFF0] pl-10">
+            <h1 className="font-bold font-[Bebas_Neue] text-[6em] md:text-[6em] lg:text-[12rem]"> <span className="text-[#fff674]">WHO</span></h1>
+            <h1 className="font-bold font-[Bebas_Neue] text-[6em] md:text-[6em] lg:text-[12rem]">I AM!</h1>
+          </div>
+          <div className="flex flex-1 flex-col gap-4 text-lg md:text-[1.4em] font-[Pt_Sans_Narrow]">
+            <p className="text-white">I’m a B.Tech undergraduate student in Computer Science (2021–2025) with a strong interest in problem solving and software development. Over the years, I’ve built a solid foundation in algorithms, data structures, and programming, with C++ as my primary language.</p>
+            <p className="text-white">I have solved 600+ programming challenges across various platforms and actively participated in coding contests to sharpen my skills. Alongside competitive programming, I also explore full-stack development and have hands-on experience working with technologies like MERN, Next.js, and Tailwind CSS.</p>
+            <p className="text-white">I enjoy building impactful solutions and learning new technologies that push my creativity and problem-solving skills. I’m always curious to explore opportunities where I can contribute to real-world projects, grow as a developer, and make technology more meaningful for people.</p>
+          </div>
+        </div>
+      </div>
+      {/* <LogoLoop
+      logos={techLogos}
+      speed={120}
+      direction="left"
+      logoHeight={48}
+      gap={40}
+      pauseOnHover
+      scaleOnHover
+      fadeOut
+      fadeOutColor="#ffffff"
+      ariaLabel="Technology partners"
+      className="text-white bg-[#060011]"
+      /> */}
+      
+      <StatusSection/>
+      <Skills />
+      <div className="w-full bg-[#000000] text-white py-16 md:py-24 lg:py-32">
+        <div className="flex flex-col md:flex-row items-center text-[#FFFFF0] px-24 py-16 gap-5 md:gap-10 lg:gap-20">
+          <div className="space-y-8 order-2 lg:order-1">
+            {experiences.map((experience, index) => (
+              <ExperienceCard key={index} {...experience} />
+            ))}
+          </div>
+          <div className="items-end flex order-1 lg:order-2 lg:sticky lg:top-24 flex-row md:flex-col gap-2 md:gap-0 leading-[.8] border-r-[2px] border-[#FFFFF0] pr-10">
+            <h1 className="font-bold font-[Bebas_Neue] text-[6em] md:text-[6em] lg:text-[12rem]" id="Aboutme"> <span className="text-[#FFFFF0]">WORK</span></h1>
+            <h1 className="font-bold font-[Bebas_Neue] text-[6em] md:text-[6em] lg:text-[12rem] text-[#fff674]">EXPERIENCE</h1>
+          </div>
+        </div>
+      </div>
+
+    <ProjectSection />
+    <Footer /> 
+    </>
+    }
     </>
   );
 }
