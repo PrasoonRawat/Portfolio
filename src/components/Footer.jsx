@@ -63,7 +63,7 @@ const Footer = () => {
                 <br />
                 <span className="text-yellow-400 relative inline-block">
                   Connect
-                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-400/30 blur-sm" />
+                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-400/80 blur-sm" />
                 </span>
               </h2>
             </div>

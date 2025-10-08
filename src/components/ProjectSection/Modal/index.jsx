@@ -54,7 +54,7 @@ function index({modal, projects}) {
               const { src, color } = project
               return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
                   <Image 
-                  src={`/images/${src}`}
+                  src={`/Images/${src}`}
                   width={300}
                   height={0}
                   alt="Medical Colleges in India"
