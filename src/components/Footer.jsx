@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Send, Sparkles } from "lucide-react";
 import { z } from "zod";
 import toast from "react-hot-toast";
+import emailjs from '@emailjs/browser';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, { message: "Name is required" }).max(100, { message: "Name must be less than 100 characters" }),
@@ -20,6 +21,29 @@ const Footer = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   try {
+  //     const validatedData = contactSchema.parse(formData);
+
+  //     // Simulate message sending
+  //     await new Promise(resolve => setTimeout(resolve, 1000));
+
+  //     toast.success("Message sent! Thank you for reaching out. I'll get back to you soon.");
+
+  //     setFormData({ name: "", email: "", message: "" });
+  //   } catch (error) {
+  //     if (error instanceof z.ZodError) {
+  //       toast.error(error.errors[0].message);
+  //     }
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -27,16 +51,34 @@ const Footer = () => {
     try {
       const validatedData = contactSchema.parse(formData);
 
-      // Simulate message sending
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const templateParams = {
+        name: validatedData.name,
+        email: validatedData.email,
+        message: validatedData.message,
+        title: "Portfolio Contact Form",
+      };
 
-      toast.success("Message sent! Thank you for reaching out. I'll get back to you soon.");
+      const response = await emailjs.send(
+        "service_u0b3zyq",
+        "template_ujs351f",
+        templateParams,
+        "jYpXqTfb_LHJAndxP"
+      );
 
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        toast.error(error.errors[0].message);
+      if (response.status === 200) {
+        toast.success("Message sent! Thank you for reaching out. I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again later.");
       }
+
+      } catch (error) {
+        if (error instanceof z.ZodError) {
+          toast.error(error.errors[0].message);
+        } else {
+          console.error(error);
+          toast.error("Failed to send message. Please try again later.");
+        }
     } finally {
       setIsSubmitting(false);
     }
@@ -47,7 +89,7 @@ const Footer = () => {
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-6 py-20 max-w-7xl relative">
+      <div className="container mx-auto px-6 py-0 md:py-0 mt-10 max-w-7xl relative">
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-5 gap-16 mb-20">
           {/* Left Column - Text Section */}
@@ -148,7 +190,7 @@ const Footer = () => {
 
         {/* Bottom Section - Credits */}
         <div className="pt-10 border-t border-gray-800/50">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-yellow-400/10 flex items-center justify-center border border-yellow-400/20">
                 <span className="text-yellow-400 font-bold text-lg">P</span>
@@ -164,6 +206,9 @@ const Footer = () => {
               <span className="hidden md:inline">•</span>
               <span className="hidden md:inline">All rights reserved</span>
             </div>
+          </div>
+          <div className="text-white opacity-40 text-center">
+            <p>since you have scrolled enough that mean you are willing to hire me</p>
           </div>
         </div>
       </div>

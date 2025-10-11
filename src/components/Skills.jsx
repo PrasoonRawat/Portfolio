@@ -175,11 +175,11 @@ const Skills = () => {
   );
 
   return (
-    <section className="min-h-screen bg-[#000000] py-20 px-6 md:px-12 lg:px-24">
+    <section className="min-h-screen bg-[#000000] md:py-20 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Header */}
         <div className="space-y-6 text-center">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-[#FFFFF0] font-[Bebas_neue]">
+          <h1 className="text-[6em] md:text-[8em] lg:text-[12em] text-[#FFFFF0] font-[Bebas_neue] font-bold">
             SKILLS
           </h1>
           <p className="text-lg md:text-xl text-white opacity-60 max-w-3xl mx-auto">
@@ -195,7 +195,7 @@ const Skills = () => {
         </div>
 
         {/* Bottom Accent */}
-        <div className="flex justify-center pt-12">
+        <div className="flex justify-center md:pt-12">
           <div className="w-24 h-1 bg-yellow-400 rounded-full"></div>
         </div>
       </div>

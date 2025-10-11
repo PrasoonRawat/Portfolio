@@ -38,7 +38,7 @@ export default function Home() {
     <>
       {/* Added text to encourage exploration above the main container */}
       <div className="text-center py-8 max-w-6xl mx-auto z-[-10] leading-none">
-        <h1 className="text-4xl md:text-4xl lg:text-[12em] font-[Bebas_Neue] font-bold bg-[#000000] text-[#FFFFF0]">
+        <h1 className="text-[4em] md:text-[8em] lg:text-[12em] font-[Bebas_Neue] font-bold bg-[#000000] text-[#FFFFF0]">
           PROJECTS
         </h1>
         <h3 className="text-white/40">Move your cursor over the project to experience it. </h3>
@@ -51,59 +51,58 @@ export default function Home() {
         </div>
         <Modal modal={modal} projects={projects} />
       </main>
-      <div className="block lg:hidden min-h-screen bg-gray-50 py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Responsive grid: 1 column on mobile, 2 columns on tablet */}
-          <div className="rid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {projects.map((project, index) => (
-              <Link href={project.link} key={index} className="group block">
-                <div
-                  className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white"
-                  style={{ backgroundColor: `${project.color}15` }}
-                >
-                  {/* Image container with aspect ratio */}
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <Image
-                      src={`/images/${project.src}`}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+      <div className="block lg:hidden min-h-screen bg-black py-10 px-6">
+        <div className="max-w-5xl md:max-w-2xl mx-auto space-y-10">
+          {projects.map((project, index) => (
+            <Link
+              href={project.link}
+              key={index}
+              className="group relative block rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-500"
+            >
+              {/* Image Layer */}
+              <div className="relative h-60 md:h-72">
+                <Image
+                  src={`/images/${project.src}`}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              </div>
+          
+              {/* Text Layer */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col">
+                <h2 className="text-3xl font-bold text-white tracking-wide group-hover:text-[${project.color}] transition-colors duration-300 drop-shadow-md">
+                  {project.title}
+                </h2>
+                <div className="mt-2 flex items-center text-white/80 group-hover:text-white text-sm md:text-base">
+                  <span>Explore {project.title}</span>
+                  <svg
+                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
                     />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  </div>
-
-                  {/* Content overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors duration-300">
-                      {project.title}
-                    </h2>
-                    <div className="flex items-center text-white/80 group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm md:text-base">Explore {project.title}</span>
-                      <svg
-                        className="w-4! h-4! relative! md:w-5! md:h-5! ml-2! group-hover:translate-x-1! transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Colored accent border */}
-                  <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: project.color }} />
+                  </svg>
                 </div>
-              </Link>
-            ))}
-          </div>
-          {/* Optional: Add a footer or additional content */}
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 text-sm md:text-base">Discover the information</p>
-          </div>
+              </div>
+          
+              {/* Accent Line */}
+              <div
+                className="absolute top-0 left-0 w-full h-[3px]"
+                style={{ backgroundColor: project.color }}
+              />
+            </Link>
+          ))}
         </div>
-      </div>
+</div>
+
     </>
   )
 }
