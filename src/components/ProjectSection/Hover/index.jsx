@@ -62,7 +62,7 @@ export default function Home() {
               {/* Image Layer */}
               <div className="relative h-60 md:h-72">
                 <Image
-                  src={`/images/${project.src}`}
+                  src={`/Images/${project.src}`}
                   alt={project.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
