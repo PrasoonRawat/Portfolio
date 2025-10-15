@@ -14,6 +14,9 @@ import ProjectSection from "@/components/ProjectSection/Hover";
 import { ExperienceCard } from "@/components/Experience-Card";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
+import Link from "next/link";
+
+import { Mail ,Download } from 'lucide-react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -157,10 +160,28 @@ export default function Home() {
             <h1 className="text-[3em] md:text-[8em]">Hi, I AM <span className="font-bold font-[Bebas_Neue] text-[#FFFFF0]">PRASOON</span></h1>
             <h3 className="font-bold opacity-40 text-[1em] md:text-[2em] font-[Pt_Sans_Narrow] ">Developer, Programmer, Problem Solver, Enthusiast </h3>
             <h3 className="opacity-40 font-[Pt_Sans_Narrow]">I am not just a computer guy, I’m the bridge between logic and creativity, shaping ideas into experiences.</h3>
+          {/* <div className="flex gap-4 mt-4">
+            <div className="flex h-6 mb-2">
+              <Link href="mailto:prasoon818@gmail.com">
+              <div className="border px-3 py-4 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black">
+                <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
+                <h3 className="font-bold">CONNECT</h3>
+              </div>
+              </Link>
+            </div>
+            <div className="flex h-6 mb-2">
+              <Link href="">
+              <div className="border px-3 py-4 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black">
+              <Download className="w-5 h-5 transition-transform group-hover:scale-110" />
+              <h3 className="font-bold">Download CV</h3>
+              </div>
+              </Link>
+            </div>
+          </div> */}
           </div>
             <div ref={lanyardRef} className="absolute hidden lg:block" style={{ width: "100%", height: "100vh" }}>
-                {inView && <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />}
-            </div>
+              {inView && <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />}
+          </div>
         </div>
       </div>
       

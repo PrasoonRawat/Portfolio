@@ -227,9 +227,7 @@ export default function ExampleProjectPage() {
               System design
             </h1>
             <p className="text-lg md:text-xl text-white opacity-40 max-w-2xl mx-auto">
-              Mediconnect is an all-in-one platform for doctors and patients where no
-              mediator is required. Both patients and doctors have full control over
-              appointments and can securely store medical reports.
+              This project was part of my learning journey in understanding system design principles and their practical implementation through common design patterns.
             </p>
           </div>
 
@@ -266,9 +264,7 @@ export default function ExampleProjectPage() {
             system design
           </h1>
           <p className="text-base md:text-lg text-white opacity-70 max-w-2xl mx-auto">
-            Mediconnect is an all-in-one platform for doctors and patients where no
-            mediator is required. Both patients and doctors have full control over
-            appointments and can securely store medical reports.
+            This project was part of my learning journey in understanding system design principles and their practical implementation through common design patterns.
           </p>
           <div className="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg">
             <Link href="https://github.com/PrasoonRawat/system_design_pattern" target="_blank">
@@ -300,7 +296,7 @@ export default function ExampleProjectPage() {
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
                 End Date
               </h3>
-              <p className="text-2xl text-white font-medium">March 2025</p>
+              <p className="text-2xl text-white font-medium">April 2024</p>
             </div>
           </div>
 
@@ -309,7 +305,7 @@ export default function ExampleProjectPage() {
             <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
               Role
             </h3>
-            <p className="text-2xl text-white font-medium">Full Stack Developer</p>
+            <p className="text-2xl text-white font-medium">System Design Developer</p>
           </div>
 
           {/* Technologies */}
@@ -342,9 +338,7 @@ export default function ExampleProjectPage() {
               Project Details
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              This project involved building a comprehensive web application focused on user
-              experience and performance, featuring real-time updates, responsive design, and
-              seamless API integration.
+              The project focused on studying and implementing three key design patterns — Mediator, Observer, and Composite — to understand how they improve scalability, maintainability, and communication between components in a software system. Each pattern was coded from scratch to explore its real-world application and impact on system architecture.
             </p>
           </div>
 
@@ -354,8 +348,7 @@ export default function ExampleProjectPage() {
               Challenges
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              One of the main challenges was optimizing the experience for mobile devices while
-              maintaining the rich functionality of the desktop version.
+             The main challenge was to clearly grasp how each design pattern fits into different scenarios and to implement them efficiently without overlapping their purposes. Understanding the flow of communication and dependencies between objects required careful analysis and debugging.
             </p>
           </div>
 
@@ -365,8 +358,7 @@ export default function ExampleProjectPage() {
               Outcome
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Successfully launched the application with over 1,000 active users in the first
-              month.
+              By completing this project, I gained a solid understanding of object-oriented design principles, modular system architecture, and how design patterns contribute to building clean, maintainable, and scalable software solutions.
             </p>
           </div>
         </div>

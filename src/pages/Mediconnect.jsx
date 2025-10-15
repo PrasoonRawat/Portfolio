@@ -137,7 +137,7 @@ export default function ExampleProjectPage() {
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
                 Start Date
               </h3>
-              <p className="text-2xl text-white font-medium">January 2024</p>
+              <p className="text-2xl text-white font-medium">September 2024</p>
             </div>
             <div>
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
@@ -188,10 +188,10 @@ export default function ExampleProjectPage() {
             <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
               Project Details
             </h3>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              This project involved building a comprehensive web application focused on user
-              experience and performance, featuring real-time updates, responsive design, and
-              seamless API integration.
+            <p className="text-lg text-white leading-relaxed">
+              This project was developed as a college major project and involves building an all-in-one healthcare platform called Mediconnect, designed to connect doctors and patients directly without any mediator.
+              The platform features two types of users — doctors and patients — where patients can search for doctors based on their specialization, book consultation slots, and securely store medical reports. Doctors can manage their schedules, accept or decline appointment requests, and maintain patient interaction records.
+              Mediconnect simplifies healthcare communication by providing a transparent and secure system that gives both doctors and patients full control over appointments and medical data.
             </p>
           </div>
 
@@ -201,19 +201,17 @@ export default function ExampleProjectPage() {
               Challenges
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              One of the main challenges was optimizing the experience for mobile devices while
-              maintaining the rich functionality of the desktop version.
+              While displaying all registered doctors, the application experienced performance issues and delays due to loading a large dataset at once.
             </p>
           </div>
 
-          {/* Outcome */}
+          {/* Solution */}
           <div>
             <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-              Outcome
+              Solution
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Successfully launched the application with over 1,000 active users in the first
-              month.
+              To resolve this, I implemented pagination, which optimized data loading by fetching doctors in smaller batches. This significantly improved page load speed and provided a smoother user experience.
             </p>
           </div>
         </div>
