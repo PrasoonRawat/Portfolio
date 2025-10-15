@@ -233,7 +233,7 @@ export default function ExampleProjectPage() {
           </div>
 
           {/* Expanding Image */}
-          <div className="absolute top-[50vh] lg:top-[53vh] left-0 right-0 px-6 md:px-12 lg:px-24 z-10 flex justify-center">
+          <div className="absolute top-[50vh] lg:top-[55vh] left-0 right-0 px-6 md:px-12 lg:px-24 z-10 flex justify-center">
             <div
               className="relative transition-[width,transform] duration-600 ease-out"
               style={{
