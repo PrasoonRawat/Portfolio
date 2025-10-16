@@ -204,31 +204,30 @@ const CardNav = ({
                   //   {lnk.label}
                   // </a>
                   <a
-  key={`${lnk.label}-${i}`}
-  href={lnk.href}
-  onClick={(e) => {
-    const targetId = lnk.href?.startsWith('#') ? lnk.href.slice(1) : null;
-    if (targetId) {
-      e.preventDefault(); // stop instant jump
-
-      // close the nav first if needed
-      if (isExpanded) toggleMenu();
-
-      // Delay smooth scroll (wait for GSAP animation to finish)
-      setTimeout(() => {
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 1000); // adjust this delay to match your GSAP duration (0.4s = 400ms)
-    }
-  }}
-  className="cursor-target nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
->
-  <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
-  {lnk.label}
-</a>
-
+                    key={`${lnk.label}-${i}`}
+                    href={lnk.href}
+                    onClick={(e) => {
+                      const targetId = lnk.href?.startsWith('#') ? lnk.href.slice(1) : null;
+                      if (targetId) {
+                        e.preventDefault(); // stop instant jump
+                      
+                        // close the nav first if needed
+                        if (isExpanded) toggleMenu();
+                      
+                        // Delay smooth scroll (wait for GSAP animation to finish)
+                        setTimeout(() => {
+                          const target = document.getElementById(targetId);
+                          if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                        }, 1000); // adjust this delay to match your GSAP duration (0.4s = 400ms)
+                      }
+                    }}
+                    className="cursor-target nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
+                  >
+                    <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
+                    {lnk.label}
+                  </a>
                 ))}
               </div>
             </div>
