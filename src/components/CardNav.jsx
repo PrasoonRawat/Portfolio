@@ -232,7 +232,7 @@ const CardNav = ({
               </div>
             </div>
           ))}
-        </div>
+        </div>  
       </nav>
     </div>
   );
