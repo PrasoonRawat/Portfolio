@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function ExampleProjectPage() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -53,6 +54,13 @@ export default function ExampleProjectPage() {
   const imageScale = isLargeScreen ? 1 + quickProgress * 0.05 : 1;
 
   return (
+    <>
+    <Head>
+        <title>Prasoon Portfolio%2025</title>
+        <meta name="description" content="Welcome to my Protfolio, Get to know about me through this piece of art." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="https://img.icons8.com/?size=100&id=LmG49EnUQig9&format=png&color=000000" />
+      </Head>
     <div className="bg-[#1A2E35] min-h-screen">
       {/* Hero Section */}
       {isLargeScreen ? (
@@ -65,7 +73,7 @@ export default function ExampleProjectPage() {
               transform: `scale(${textScale})`,
               transformOrigin: "top center",
             }}
-          >
+            >
             <h1 className="text-[6em] md:text-[12em] font-[Bebas_Neue] font-bold text-white">
               MEDICONNECT
             </h1>
@@ -84,7 +92,7 @@ export default function ExampleProjectPage() {
                 width: `${imageWidth}%`,
                 transform: `scale(${imageScale})`,
               }}
-            >
+              >
               <Link href="https://medconnect-user.netlify.app/" target="_blank">
                 <div className="relative mx-auto h-[90vh] w-full">
                   <Image
@@ -93,7 +101,7 @@ export default function ExampleProjectPage() {
                     fill
                     className="object-cover rounded-t-2xl cursor-target"
                     priority
-                  />
+                    />
                 </div>
               </Link>
             </div>
@@ -122,7 +130,7 @@ export default function ExampleProjectPage() {
                 height={800}
                 className="w-full h-auto object-cover"
                 priority
-              />
+                />
             </Link>
           </div>
         </div>
@@ -174,8 +182,8 @@ export default function ExampleProjectPage() {
                 "Netlify",
               ].map((tech) => (
                 <span
-                  key={tech}
-                  className="px-4 py-2 bg-white/10 text-white rounded-lg text-sm font-medium"
+                key={tech}
+                className="px-4 py-2 bg-white/10 text-white rounded-lg text-sm font-medium"
                 >
                   {tech}
                 </span>
@@ -217,5 +225,6 @@ export default function ExampleProjectPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

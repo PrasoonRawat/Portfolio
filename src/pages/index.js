@@ -149,7 +149,7 @@ export default function Home() {
       </span>
       <div>
         <div className="bg-gradient-to-b from-[#2E2440] to-[#060011] flex flex-col  justify-center min-h-screen font-[Pt_Sans_Narrow] items-center text-white leading-none">
-          <div className="px-4">
+          <div className="px-4 z-10">
             <div className="flex h-6 mb-2">
               <div className="border px-2 py-2 md:px-3 md:py-4 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black">
               <div className="w-3 h-3 rounded-full bg-[#37ff00]"></div> 
@@ -160,24 +160,28 @@ export default function Home() {
             <h1 className="text-[3em] md:text-[8em]">Hi, I AM <span className="font-bold font-[Bebas_Neue] text-[#FFFFF0]">PRASOON</span></h1>
             <h3 className="font-bold opacity-40 text-[1em] md:text-[2em] font-[Pt_Sans_Narrow] ">Developer, Programmer, Problem Solver, Enthusiast </h3>
             <h3 className="opacity-40 font-[Pt_Sans_Narrow]">I am not just a computer guy, I’m the bridge between logic and creativity, shaping ideas into experiences.</h3>
-          {/* <div className="flex gap-4 mt-4">
-            <div className="flex h-6 mb-2">
-              <Link href="mailto:prasoon818@gmail.com">
-              <div className="border px-3 py-4 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black">
-                <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
-                <h3 className="font-bold">CONNECT</h3>
-              </div>
-              </Link>
+            <div className="justify-start items-start z-10">
+            <div className="flex gap-4 mt-6 flex-wrap z-10">
+              {/* CONNECT BUTTON */}
+              <a href="mailto:prasoon818@gmail.com">
+                <div className="border px-4 py-3 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black hover:scale-105 transition">
+                  <Mail className="w-5 h-5" />
+                  <h3 className="font-bold">CONNECT</h3>
+                </div>
+              </a>
+
+              {/* DOWNLOAD RESUME BUTTON */}
+              <a
+                href="/Resume_Prasoon.pdf"
+                download="Prasoon_Rawat_Resume.pdf"
+                >
+                <div className="border px-4 py-3 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black hover:scale-105 transition">
+                  <Download className="w-5 h-5" />
+                  <h3 className="font-bold">DOWNLOAD CV</h3>
+                </div>
+              </a>
             </div>
-            <div className="flex h-6 mb-2">
-              <Link href="">
-              <div className="border px-3 py-4 flex items-center justify-center rounded-[50px] gap-2 bg-[#FFFFF0] border-[#FFFFF0] text-black">
-              <Download className="w-5 h-5 transition-transform group-hover:scale-110" />
-              <h3 className="font-bold">Download CV</h3>
-              </div>
-              </Link>
-            </div>
-          </div> */}
+          </div>
           </div>
             <div ref={lanyardRef} className="absolute hidden lg:block" style={{ width: "100%", height: "100vh" }}>
               {inView && <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />}
