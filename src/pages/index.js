@@ -33,8 +33,8 @@ const experiences = [
   {
     company: "ENROLLIX",
     role: "Full Stack Developer",
-    startDate: "Dec 2024",
-    endDate: "Jul 2025",
+    startDate: "Jul 2025",
+    endDate: "Sep 2025",
     description:
       "Built responsive web application using Next.js and Tailwind CSS, implemented RESTful APIs with Node.js and Express, and managed MongoDB database operations.",
   },
