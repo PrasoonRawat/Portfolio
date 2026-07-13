@@ -33,7 +33,7 @@ const experiences = [
   {
     company: "IBM",
     role: "Associate System Engineer",
-    startDate: "April 2025",
+    startDate: "April 2026",
     endDate: "Present",
     description:
       "-",
