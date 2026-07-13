@@ -31,6 +31,14 @@ const geistMono = Geist_Mono({
 
 const experiences = [
   {
+    company: "IBM",
+    role: "Associate System Engineer",
+    startDate: "April 2025",
+    endDate: "Present",
+    description:
+      "-",
+  },
+  {
     company: "ENROLLIX",
     role: "Full Stack Developer",
     startDate: "Jul 2025",
